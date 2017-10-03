@@ -2,10 +2,13 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">   
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link type="text/css" rel="stylesheet" href="reset.css"  />   
         <link type="text/css" rel="stylesheet" href="styles.css" />
         <script src="https://code.jquery.com/jquery-latest.min.js"></script>
-        <script src="script.js"></script>
+        <script src="scripts/news.js"></script>
+        <script src="scripts/ellipsis.js"></script>
+        <script src="scripts/slider.js"></script>
         <title>Test Luxoft</title>
     </head>
 
@@ -78,9 +81,9 @@
 			               Lobortis Quis Suscipit Enim
 			              Tincidunt Aliquip Lobortis Feug
 			                    Delenit Quis Vero Dolore
-			           Lobortis Quis Suscipit Enim
-			             Delenit Quis Vero Dolore
-			               Delenit ea Velit  Vero Dolore
+			           			Lobortis Quis Suscipit Enim
+			            		 Delenit Quis Vero Dolore
+			               		Delenit ea Velit  Vero Dolore
 			                 Lobortis Quis Suscipit Enim
 			                Tincidunt Aliquip Lobortis Feuit
 			                Delenit Quis Vero Dolore
@@ -97,16 +100,16 @@
        					<h2 class="col-title">Lorem ipsum<span>dolor sit amet</span></h2>
        					<p class="col-content">
        						Lorem ipsum dolor sit amet, secte uer adipiscin
-elit, sedam nonumy nibh euismod tidunt ut laor 
-olma gna quam erat volutpat. Ut wisiad minim 
-niam, qui nostru xerctation ullamcorper susc lo
-tis nisl ut aliquip ex ea consequat. Duis autem 
-eu iriure dolor in hendrerit in vul velit esse mo 
-consequa vel illum dolore eu feugi at nul facilis 
-at vero eros et acc faci. sedam nonumy nibh 
-mod tidunt ut laoreet dolmagna quam erat vol
-at. Ut wisiad minim veniam, qui nostru xerctat
-ullamcorper susc lobortis nisl ut aliq
+							elit, sedam nonumy nibh euismod tidunt ut laor 
+							olma gna quam erat volutpat. Ut wisiad minim 
+							niam, qui nostru xerctation ullamcorper susc lo
+							tis nisl ut aliquip ex ea consequat. Duis autem 
+							eu iriure dolor in hendrerit in vul velit esse mo 
+							consequa vel illum dolore eu feugi at nul facilis 
+							at vero eros et acc faci. sedam nonumy nibh 
+							mod tidunt ut laoreet dolmagna quam erat vol
+							at. Ut wisiad minim veniam, qui nostru xerctat
+							ullamcorper susc lobortis nisl ut aliq
        					</p>
        					<img src="img/col-image.jpg" alt="" class="col-image">
        			</div>	
@@ -129,81 +132,5 @@ ullamcorper susc lobortis nisl ut aliq
        			Copyright by <span>Company Name</span> © 2004 All rights Reserved
        		</div>
        </footer>
-       <script>	
-
-		  var marquee = $("#slider ul");
-		  var images = $(".slide"); 	  
-		  				
-		  var slideCount = $('.slider-list').children().length;
-		  var slideInterval = 1000;
-		
-		  var step = 0;
-					 
-		       	function nextSlide() {
-		       	
-       				$(marquee).css('left', -step + 'px');
-       				$(marquee).css('left', '0px');
-       				$('.slider-list > li:first').remove().appendTo('.slider-list');
-       				step = 158;
-
-		       	}
-				 $(document).ready(function () {
-				    var switchInterval = setInterval(nextSlide, slideInterval);
-
-				    $('#slider').hover(function(){
-				        clearInterval(switchInterval);
-				    },function() {
-				        switchInterval = setInterval(nextSlide, slideInterval);
-				    });
-				  });
-
-
-       </script>
-
-
-      
-
-
-       <script>
-       		
-       </script>
-        <script>
-       		$(window).on('load',function() {			   
-			    var showChar = 100; 
-			    var ellipsestext = "...";
-			    var moretext = "Show >";			     
-			    var lesstext = "Hide";
-			    var maxHeight = 127;
-			    $('.more').css('border', 'red');
-
-			    $('.more').each(function() {
-			    	console.log("Hello");
-			        var content = $(this).html();
-			        var contentHeight = $(this).height();
-
-			        var ellipse = '<span class="moreellipses">' + ellipsestext+ '&nbsp;</span>'		               
-			 		console.log(contentHeight);
-			        if(contentHeight > maxHeight) {
-			 			$(this).addClass('more-max-height');
-			            $(this).append(ellipse);
-			            $(this).after('<a href="" class="morelink">' + moretext + '</a></span>')		            
-			        }
-			 
-			    });
-			 
-			    $(".morelink").click(function(){
-			        if($(this).hasClass("less")) {			        	
-			            $(this).removeClass("less");
-			            $(this).html(moretext);
-			        } else {
-			            $(this).addClass("less");
-			            $(this).html(lesstext);
-			        }
-			        $(this).prev().children().toggle();
-			        $(this).prev().toggleClass('more-max-height');
-			        return false;
-			    });
-			});
-       </script>
     </body>
 </html>
